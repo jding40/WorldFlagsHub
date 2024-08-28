@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UN Countries</title>
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@4.5.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script> -->
+
+</head>
+
+<body tabindex="-1">
+
+  <%- include('partials/navbar', {page: '/un/countries' }) %>
+
+    <div class="container mx-auto p-4">
+
+      <div class="hero bg-base-200 rounded-lg p-6">
+        <div class="hero-content text-center ">
+          <div class="max-w-md">
+            <h1 class="text-5xl font-bold">Countries</h1>
+  
+            <p class="py-6">Browse countries, i.e., United Nations member states.  Click the 'region' buttons to filter by regions such as: <a href="/un/countries?region=Africa" class="btn btn-primary btn-xs">Africa</a> <a href="/un/countries?region=Americas" class="btn btn-primary btn-xs">Americas</a></p>
+  
+          </div>
+        </div>
+      </div>
+  
+      <br />
+      <!-- <%= JSON.stringify(countries) %> -->
+    
+      <div class="overflow-x-auto overflow-y-hidden">
+        <table class="table table-zebra">
+          <!-- head -->
+          
+          <tbody>
+            <% countries.forEach(country=> { %>
+
+              <tr>
+                <td>   
+                  <div class="avatar">
+                    <div class="rounded h-24 min-w-40 shadow-xl">
+                      <img src="<%= country.flag %>" alt="<%= country.name %>" />
+                    </div>
+                  </div>
+                  <!-- <img class="rounded h-24 max-w-40" src="<%= country.flag %>" alt="<%= country.name %>" />  -->
+                </td>
+                <!-- <td><img src="<%= country.flag %>" alt="<%= country.name %>" /></td> -->
+
+                <td>
+                  <%= country.name %> | <a href="/un/countries?region=<%= country.Region.name %>" class="btn btn-primary mt-2 btn-xs"><%= country.Region.name %></a>
+                </td>
+
+                <td>
+                  <span class="font-bold">Population: </span> <%= country.population.toLocaleString() %> - <span class="font-bold">Capital:</span> <%= country.capital %>
+                </td>
+
+                <th>
+                  <a href="/un/countries/<%= country.a2code%>" class="btn btn-primary btn-xs">details</a>
+                </th>
+
+              </tr>
+
+              <% }); %>
+
+          </tbody>
+
+
+        </table>
+      </div>
+
+    </div>
+
+
+
+
+    <!-- <div class="container mx-auto p-4">
+
+    <div class="hero bg-base-200 rounded-lg p-6">
+      <div class="hero-content text-center ">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold">About</h1>
+
+          <p class="py-6">Everything you want to know about me - the designer &amp; developer.</p>
+
+        </div>
+      </div>
+    </div>
+
+    <br />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <img class="w-full rounded-lg"
+          src="https://educationsnapshots.com/wp-content/uploads/sites/4/2022/01/seneca-college-newnham-campus-food-hall-3-700x467-compact.jpg"
+          alt="profile" />
+
+      </div>
+      <div class="prose">
+
+        <p>My name is John Smith and I'm currently studying at Seneca Polytechnic.</p>
+
+        <p>Donec sollicitudin molestie tortor, vel feugiat nulla maximus quis. Suspendisse ut sapien id mauris
+          sollicitudin commodo. Quisque semper, ligula et tincidunt dapibus, nisi ante fermentum lectus, nec molestie
+          sem eros vel neque. Duis sit amet ligula eu ligula consectetur blandit sed at mi. Sed ac odio aliquet,
+          vestibulum justo eget, volutpat eros. Mauris a dictum erat. Vivamus sodales egestas tempus. Duis pulvinar nibh
+          enim, vel gravida nunc egestas id. Duis magna ante, posuere id luctus id, mattis at ipsum. Nullam sit amet
+          magna et dui varius tristique ac id nisl. Pellentesque est dolor, luctus vitae dictum ut, hendrerit lacinia
+          lorem. Nullam a pharetra tortor.</p>
+
+      </div>
+
+    </div>
+
+  </div> -->
+</body>
+
+</html>

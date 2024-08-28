@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UN Countries</title>
+  <link rel="stylesheet" href="/css/main.css" />
+
+</head>
+
+<body tabindex="-1">
+  
+  <%- include('partials/navbar',{page: ''}) %>
+  <br />
+
+  <div class="container mx-auto">
+
+    <div class="hero bg-base-200 rounded-lg p-6">
+      <div class="hero-content text-center ">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold">Welcome</h1>
+
+          <p class="py-6">This application provides information about the 193 member states of the United Nations. The followings are the five permanent members of the United Nations Security Council.</p>
+      
+          <a href="/un/countries" class="btn btn-primary">Get Started Now</a>
+        </div>
+      </div>
+    </div>
+
+    <br />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div>
+
+        <div class="card bg-base-100 shadow-xl">
+          <figure>
+            <img class="w-full" src="https://flagcdn.com/w320/cn.png" alt="UNSC Perm. Member - China" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">China</h2>
+            <p>An United Nations Security Council Permanent Member</p>
+            <div class="card-actions justify-end">
+              <a href="/un/countries/CN" class="btn btn-primary">View</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <div class="card bg-base-100 shadow-xl">
+          <figure>
+            <img class="w-full" src="https://flagcdn.com/w320/fr.png" alt="UNSC Perm. Member - France" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">France</h2>
+            <p>An United Nations Security Council Permanent Member</p>
+            <div class="card-actions justify-end">
+              <a href="/un/countries/FR" class="btn btn-primary">View</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <div class="card bg-base-100 shadow-xl">
+          <figure>
+            <img class="w-full" src="https://flagcdn.com/w320/ru.png" alt="UNSC Perm. Member - Russia" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Russian Federation</h2>
+            <p>An United Nations Security Council Permanent Member</p>
+            <div class="card-actions justify-end">
+              <a href="/un/countries/RU" class="btn btn-primary">View</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <div class="card bg-base-100 shadow-xl">
+          <figure>
+            <img class="w-full" src="https://flagcdn.com/w320/gb.png" alt="UNSC Perm. Member - UK" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">United Kingdom</h2>
+            <p>An United Nations Security Council Permanent Member</p>
+            <div class="card-actions justify-end">
+              <a href="/un/countries/GB" class="btn btn-primary">View</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <div class="card bg-base-100 shadow-xl">
+          <figure>
+            <img class="w-full" src="https://flagcdn.com/w320/us.png" alt="UNSC Perm. Member - U.S." />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">United States</h2>
+            <p>An United Nations Security Council Permanent Member</p>
+            <div class="card-actions justify-end">
+              <a href="/un/countries/US" class="btn btn-primary">View</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+</body>
+
+</html>
