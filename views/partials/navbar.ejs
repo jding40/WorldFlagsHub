@@ -1,6 +1,6 @@
 <div class="navbar bg-base-100">
     <div class="flex-1">
-      <a class="btn btn-ghost normal-case text-xl" href="/">UN Member States</a>
+      <a class="btn btn-ghost normal-case text-xl" href="/">FreshPro Inventory Management System</a>
     </div>
 
     <div class="dropdown">
@@ -10,7 +10,7 @@
         </svg>
       </label>
       <ul tabindex="0" class="menu menu-sm dropdown-content right-0 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a class= "<%= (page == "/un/countries") ? 'active' : '' %>" href="/un/countries">All Countries</a></li>
+        <li><a class= "<%= (page == "/") ? 'active' : '' %>" href="/">Feedback</a></li>
         <!-- <li><a class="<%= (page == "/un/addCountry") ? 'active' : '' %>" href="/un/addCountry">Add Country</a></li> -->
         <li><a class="<%= (page == "/about") ? 'active' : '' %>" href="/about">About</a></li>
         <% if (session.user) { %>
@@ -18,7 +18,7 @@
               <details>
                   <summary>Account: <%= session.user.userName %></summary>
                   <ul class="p-2 right-0">
-                      <li><a class="<%= (page == " /un/addCountry") ? 'active' : '' %>" href="/un/addCountry">Add to Collection</a></li>
+                      <li><a class="<%= (page == " /shelfLocationManagement") ? 'active' : '' %>" href="/shelfLocationManagement">Add to Collection</a></li>
                       <li><a class="<%= (page == " /userHistory") ? 'active' : '' %>" href="/userHistory">User History</a></li>
                       <li><a href="/logout">Log Out</a></li>
                   </ul>
@@ -55,9 +55,9 @@
 
     <div class="navbar-center hidden sm:flex">
       <ul class="menu menu-horizontal px-1">
-        <li><a class= "<%= (page == "/un/countries") ? 'active' : '' %>" href="/un/countries">All Countries</a></li>
+        <li><a class= "<%= (page == "/") ? 'active' : '' %>" href="/">Home(首页)</a></li>
         <!-- <li><a class="<%= (page == "/un/addCountry") ? 'active' : '' %>" href="/un/addCountry">Add Country</a></li> -->
-        <li><a class="<%= (page == "/about") ? 'active' : '' %>" href="/about">About</a></li>
+        <li><a class="<%= (page == "/about") ? 'active' : '' %>" href="/feedback">Feedback & Suggestions(意见与建议)</a></li>
         <!-- <li>
           <details>
             <summary>Region</summary>
@@ -76,8 +76,7 @@
                   <summary>Account: <%= session.user.userName %>
                   </summary>
                   <ul class="p-2 right-0">
-                      <li><a class="<%= (page == " /un/addCountry") ? 'active' : '' %>" href="/un/addCountry">Add
-                              Country</a></li>
+                      <li><a class="<%= (page == " /shelflocationmanagement") ? 'active' : '' %>" href="/shelflocationmanagement">Shelf Management</a></li>
                       <li><a class="<%= (page == " /userHistory") ? 'active' : '' %>" href="/userHistory">User
                               History</a></li>
                       <li><a href="/logout">Log Out</a></li>

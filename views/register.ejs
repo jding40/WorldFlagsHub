@@ -1,7 +1,7 @@
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UN Countries</title>
+    <title>FreshPro Inventory Management System</title>
     <link rel="stylesheet" href="/css/main.css">
   
   </head>
@@ -31,8 +31,8 @@
         
           <form method="post" action="/register" class="space-y-4">
             <div class="flex flex-col">
-              <label for="userName" class="text-sm font-semibold text-gray-600">User Name</label>
-              <input id="userName" name="userName" type="text" placeholder="User Name" required="" value="" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500">
+              <label for="ID" class="text-sm font-semibold text-gray-600">User ID</label>
+              <input id="ID" name="userID" type="text" placeholder="User ID" required="" value="" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500">
             </div>
         
             <div class="flex flex-col">
@@ -43,6 +43,16 @@
             <div class="flex flex-col">
               <label for="password2" class="text-sm font-semibold text-gray-600">Confirm Password</label>
               <input id="password2" name="password2" type="password" placeholder="Confirm Password" required="" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500">
+            </div>
+
+            <div class="flex flex-col">
+              <label for="user-type">User Type: </label>
+          
+              <!-- Select dropdown with Staff and Customer options -->
+              <select id="user-type" name="user-type">
+                  <option value="staff">Staff</option>
+                  <option value="customer">Customer</option>
+              </select>
             </div>
         
             <div class="flex flex-col">

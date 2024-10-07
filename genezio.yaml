@@ -4,7 +4,7 @@ frontend:
     scripts:
         build: npm run build
         deploy: npm install
-    subdomain: WorldFlagsHub
-name: WorldFlagsHub
+    subdomain: FreshProInventoryManagement
+name: FreshProInventoryManagement
 region: us-east-1
 yamlVersion: 2

@@ -12,10 +12,14 @@ require('dotenv').config();
 
 //step A2.6
 const userSchema = new Schema({
-    userName: {type: String, unique: true},
+    userID: {type: String, unique: true},
     //userName: String,
     password: String,
+    userType: String,
     email: String,
+    tel: String,
+    firstName: String,
+    lastName: String,
     loginHistory:[{
         dateTime: Date,
         userAgent: String
@@ -25,7 +29,7 @@ const userSchema = new Schema({
 
 
 //step A2.7
-let User;
+let User; // to be defined on new connection (see initialize)
 
 //step A2.8
 
@@ -47,7 +51,7 @@ function initialize(){
             reject(err); // reject the promise with the provided error
         });
         db.once('open', ()=>{
-           User = db.model("users", userSchema); //users is the name of the collection int eh database
+           User = db.model("Users", userSchema); //Users is the name of the collection in the database
            resolve();
         });
     });
