@@ -63,7 +63,7 @@
           </details>
         </li> -->
         <% if (session.user) { %>
-          <li><a class= "<%= (page == " /shelfLocationManagement") ? 'active' : '' %>" href="/shelflocationmanagement">Shelf Management</a></li>
+          <li><a class="<%= (page == "/shelflocationmanagement") ? 'active' : '' %>" href="/shelflocationmanagement">Shelf Management</a></li>
           <li><a href="/logout">Log Out</a></li>
           
           <% } else { %>
