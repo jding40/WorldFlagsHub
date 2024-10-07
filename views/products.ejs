@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshPro Inventory Management System</title>
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@4.5.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script> -->
+
+</head>
+
+<body tabindex="-1">
+
+  <%- include('partials/navbar', {page: '/un/countries' }) %>
+
+    <div class="container mx-auto p-4">
+
+      <div class="hero bg-base-200 rounded-lg p-6">
+        <div class="hero-content text-center ">
+          <div class="max-w-md">
+            <h1 class="text-5xl font-bold">Products</h1>
+  
+            
+  
+          </div>
+        </div>
+      </div>
+  
+      <br />
+
+    
+      <div class="overflow-x-auto overflow-y-hidden">
+        <table class="table table-zebra">
+          <!-- head -->
+           <thead>
+            <th>
+              <span class="font-bold">Bar Code 产品条码</span>
+            </th>
+            <th>
+              <span class="font-bold">Product Name产品名称</span>
+            </th>
+
+            <th>
+              <span class="font-bold">Shelf Location 基本储位</span>
+            </th>
+            <th>
+              <span class="font-bold">Alternative Shelf Location 补充储位</span>
+            </th>
+          
+          </thead>
+          
+          <tbody>
+            <% products.forEach(product=> { %>
+
+              <tr>
+                <td>
+                   <%= product.barCode %>  
+                </td>
+
+                <td>
+                   <%= product.productName %> 
+                </td>
+
+
+                <td>
+                  <% if(product.primaryShelfLocation) { %>
+                    <span style="width: 160px; display: inline-block">Shelf ID(货架编号): </span><%= product.primaryShelfLocation?.slice(0,2) %> <br>
+                    <% if(product.primaryShelfLocation?.length===4) %> <span style="width: 160px; display: inline-block">Section ID(分区编号): </span><%= product.primaryShelfLocation?.slice(2,3) %>  %> <br>
+                    <span style="width: 160px; display: inline-block">Level(层): </span><%= product.primaryShelfLocation?.slice(-1) %> 
+                  <%  } %>
+                  </td>
+
+                <td>
+                  
+                  <% if(product.alternativeShelfLocation) { %>
+                    <span style="width: 160px; display: inline-block">Shelf ID(货架编号): </span><%= product.alternativeShelfLocation?.slice(0,2) %> <br>
+                    <% if(product.alternativeShelfLocation?.length===4) %> <span style="width: 160px; display: inline-block">Section ID(分区编号): </span><%= product.alternativeShelfLocation?.slice(2,3) %>  %> <br>
+                    <span style="width: 160px; display: inline-block">Level(层): </span><%= product.alternativeShelfLocation?.slice(-1) %> 
+                  <%  } %>
+                </td>
+
+              </tr>
+
+              <% }); %>
+
+          </tbody>
+
+
+        </table>
+      </div>
+
+    </div>
+
+
+
+
+    <!-- <div class="container mx-auto p-4">
+
+    <div class="hero bg-base-200 rounded-lg p-6">
+      <div class="hero-content text-center ">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold">About</h1>
+
+          <p class="py-6">Everything you want to know about me - the designer &amp; developer.</p>
+
+        </div>
+      </div>
+    </div>
+
+    <br />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <img class="w-full rounded-lg"
+          src="https://educationsnapshots.com/wp-content/uploads/sites/4/2022/01/seneca-college-newnham-campus-food-hall-3-700x467-compact.jpg"
+          alt="profile" />
+
+      </div>
+      <div class="prose">
+
+        <p>My name is John Smith and I'm currently studying at Seneca Polytechnic.</p>
+
+        <p>Donec sollicitudin molestie tortor, vel feugiat nulla maximus quis. Suspendisse ut sapien id mauris
+          sollicitudin commodo. Quisque semper, ligula et tincidunt dapibus, nisi ante fermentum lectus, nec molestie
+          sem eros vel neque. Duis sit amet ligula eu ligula consectetur blandit sed at mi. Sed ac odio aliquet,
+          vestibulum justo eget, volutpat eros. Mauris a dictum erat. Vivamus sodales egestas tempus. Duis pulvinar nibh
+          enim, vel gravida nunc egestas id. Duis magna ante, posuere id luctus id, mattis at ipsum. Nullam sit amet
+          magna et dui varius tristique ac id nisl. Pellentesque est dolor, luctus vitae dictum ut, hendrerit lacinia
+          lorem. Nullam a pharetra tortor.</p>
+
+      </div>
+
+    </div>
+
+  </div> -->
+</body>
+
+</html>

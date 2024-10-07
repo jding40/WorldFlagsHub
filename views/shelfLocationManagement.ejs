@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshPro Inventory Management System</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body tabindex="-1">
+  <%- include('partials/navbar', {page: '/un/shelfLocationManagement' }) %>
+
+    <div class="container mx-auto p-4">
+
+      <div class="hero bg-base-200 rounded-lg p-6">
+        <div class="hero-content text-center ">
+          <div class="max-w-md">
+            <h1 class="text-5xl font-bold">Visit the shelf</h1>
+
+            <p class="py-6">Use the below form to visit the shelf you intend to operate.</p>
+
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <form action="/shelfLocationManagement" method="post">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gap-y-0">
+          <div>
+            <div class="mb-6">
+              <label for="shelfNo" class="block text-gray-700 font-medium">Shelf No</label>
+              <select id="shelfNo" name="shelfNo" required
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-300">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
+            </div>
+          </div>
+
+          
+          <div>
+            <div class="mb-6">
+              <label for="side" class="block text-gray-700 font-medium">Side</label>
+              <select id="side" name="side" required
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-300">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="F">Front</option>
+                <option value="R">Back</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <div class="mb-6">
+              <label for="section" class="block text-gray-700 font-medium">Section</label>
+              <select id="section" name="section" required
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-300">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="N/A">N/A</option>
+              </select>
+            </div>
+
+            <!-- <div class="mb-6">
+              <label class="label cursor-pointer justify-normal">
+                <input type="checkbox" name="active" class="checkbox" />
+                <span class="label-text px-2">Active</span>
+              </label>
+            </div> -->
+
+          </div>
+
+          <div>
+            <div class="mb-6">
+              <label for="level" class="block text-gray-700 font-medium">Level</label>
+              <select id="level" name="level" required
+                class="w-full border border-gray-300 rounded-md px-3 py-2 focus:border-blue-300">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="6">7</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+        
+
+        <div class="mt-6">
+          <button type="submit" class="btn btn-primary w-full ">Visit the related shelf</button>
+        </div>
+ 
+      </form>
+    </div>
+
+</body>
+</html>

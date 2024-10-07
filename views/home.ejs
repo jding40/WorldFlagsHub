@@ -4,115 +4,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UN Countries</title>
+  <title>FreshPro Inventory Management System</title>
   <link rel="stylesheet" href="/css/main.css" />
 
 </head>
 
 <body tabindex="-1">
   
-  <%- include('partials/navbar',{page: ''}) %>
+  <%- include('partials/navbar',{page: '/'}) %>
   <br />
 
-  <div class="container mx-auto">
-
+  <div class="container mx-auto p-4">
+  
+  
     <div class="hero bg-base-200 rounded-lg p-6">
       <div class="hero-content text-center ">
         <div class="max-w-md">
-          <h1 class="text-5xl font-bold">Welcome</h1>
+          <h1 class="text-8xl font-bold">搜索商品储位</h1>
+          <h1 class="text-8xl font-bold">Search Product Location</h1>
 
-          <p class="py-6">This application provides information about the 193 member states of the United Nations. The followings are the five permanent members of the United Nations Security Council.</p>
-      
-          <a href="/un/countries" class="btn btn-primary">Get Started Now</a>
+          <p class="py-6">请提供产品信息<br>Please provide product information</p>
+
         </div>
       </div>
     </div>
 
-    <br />
+    <br>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div>
-
-        <div class="card bg-base-100 shadow-xl">
-          <figure>
-            <img class="w-full" src="https://flagcdn.com/w320/cn.png" alt="UNSC Perm. Member - China" />
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">China</h2>
-            <p>An United Nations Security Council Permanent Member</p>
-            <div class="card-actions justify-end">
-              <a href="/un/countries/CN" class="btn btn-primary">View</a>
-            </div>
-          </div>
-
+    
+    
+      <form method="post" action="/" class="space-y-4">
+        <% if (session.user) { %>
+        <div class="flex flex-col">
+          <label for="barCode" class="text-sm font-semibold text-gray-600">Bar Code/条码</label>
+          <input id="barCode" name="barCode" type="text" placeholder="Bar Code" value="" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500">
         </div>
-      </div>
-
-      <div>
-        <div class="card bg-base-100 shadow-xl">
-          <figure>
-            <img class="w-full" src="https://flagcdn.com/w320/fr.png" alt="UNSC Perm. Member - France" />
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">France</h2>
-            <p>An United Nations Security Council Permanent Member</p>
-            <div class="card-actions justify-end">
-              <a href="/un/countries/FR" class="btn btn-primary">View</a>
-            </div>
-          </div>
-
+        <% } %>
+    
+        <div class="flex flex-col">
+          <label for="productName" class="text-sm font-semibold text-gray-600">Product Name/产品名称</label>
+          <input id="productName" name="productName" type="text" placeholder="Product Name" required="" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500">
         </div>
-      </div>
-
-      <div>
-        <div class="card bg-base-100 shadow-xl">
-          <figure>
-            <img class="w-full" src="https://flagcdn.com/w320/ru.png" alt="UNSC Perm. Member - Russia" />
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">Russian Federation</h2>
-            <p>An United Nations Security Council Permanent Member</p>
-            <div class="card-actions justify-end">
-              <a href="/un/countries/RU" class="btn btn-primary">View</a>
-            </div>
-          </div>
-
+    
+        <div class="flex flex-col">
+          <label for="brand" class="text-sm font-semibold text-gray-600">Brand/品牌</label>
+          <input id="brand" name="brand" type="text" placeholder="brand" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500">
         </div>
-      </div>
 
-      <div>
-        <div class="card bg-base-100 shadow-xl">
-          <figure>
-            <img class="w-full" src="https://flagcdn.com/w320/gb.png" alt="UNSC Perm. Member - UK" />
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">United Kingdom</h2>
-            <p>An United Nations Security Council Permanent Member</p>
-            <div class="card-actions justify-end">
-              <a href="/un/countries/GB" class="btn btn-primary">View</a>
-            </div>
-          </div>
+    
+    
+        <!-- <div class="flex flex-col">
+          <label for="email" class="text-sm font-semibold text-gray-600">Email Address</label>
+          <input id="email" name="email" type="email" placeholder="Email Address" required="" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-500">
+        </div> -->
+    
+        <input type="submit" class="bg-green-500 text-white p-2 rounded-md cursor-pointer hover:bg-green-600 focus:outline-none focus:ring focus:border-blue-500" value="Search">
+      </form>
+    
+    
+    
+  </div>
 
-        </div>
-      </div>
 
-      <div>
-        <div class="card bg-base-100 shadow-xl">
-          <figure>
-            <img class="w-full" src="https://flagcdn.com/w320/us.png" alt="UNSC Perm. Member - U.S." />
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">United States</h2>
-            <p>An United Nations Security Council Permanent Member</p>
-            <div class="card-actions justify-end">
-              <a href="/un/countries/US" class="btn btn-primary">View</a>
-            </div>
-          </div>
 
-        </div>
-      </div>
-
-    </div>
-</body>
-
-</html>
+</body></html>
