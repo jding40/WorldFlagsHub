@@ -63,18 +63,9 @@
           </details>
         </li> -->
         <% if (session.user) { %>
-          <li>
-              <details>
-                  <summary>Account: <%= session.user.userName %>
-                  </summary>
-                  <ul class="p-2 right-0">
-                      <li><a class="<%= (page == " /shelflocationmanagement") ? 'active' : '' %>" href="/shelflocationmanagement">Shelf Management</a></li>
-                      <li><a class="<%= (page == " /userHistory") ? 'active' : '' %>" href="/userHistory">User
-                              History</a></li>
-                      <li><a href="/logout">Log Out</a></li>
-                  </ul>
-              </details>
-          </li>
+          <li><a class="<%= (page == " /shelflocationmanagement") ? 'active' : '' %>" href="/shelflocationmanagement">Shelf Management</a></li>
+          <li><a href="/logout">Log Out</a></li>
+          
           <% } else { %>
               <li>
                   <details>
