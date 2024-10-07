@@ -67,18 +67,18 @@
 
                 <td>
                   <% if(product.primaryShelfLocation) { %>
-                    <span style="width: 160px; display: inline-block">Shelf ID(货架编号): </span><%= product.primaryShelfLocation?.slice(0,2) %> <br>
-                    <% if(product.primaryShelfLocation.length===4) { %> <span style="width: 160px; display: inline-block">Section ID(分区编号): </span><%= product.primaryShelfLocation.slice(2,3) %>  %> <br> <% } %>
-                    <span style="width: 160px; display: inline-block">Level(层): </span><%= product.primaryShelfLocation?.slice(-1) %> 
+                    <span style="width: 140px; display: inline-block">Shelf ID(货架编号): </span><%= product.primaryShelfLocation?.slice(0,2) %> <br>
+                    <% if(product.primaryShelfLocation.length===4) { %> <span style="width: 140px; display: inline-block">Section ID(分区编号): </span><%= product.primaryShelfLocation.slice(2,3) %>  %> <br> <% } %>
+                    <span style="width: 140px; display: inline-block">Level(层): </span><%= product.primaryShelfLocation?.slice(-1) %> 
                   <%  } %>
                   </td>
 
                 <td>
                   
                   <% if(product.alternativeShelfLocation) { %>
-                    <span style="width: 160px; display: inline-block">Shelf ID(货架编号): </span><%= product.alternativeShelfLocation?.slice(0,2) %> <br>
-                    <% if(product.alternativeShelfLocation.length===4) {  %> <span style="width: 160px; display: inline-block">Section ID(分区编号): </span><%= product.alternativeShelfLocation.slice(2,3) %>  %> <br> <% } %>
-                    <span style="width: 160px; display: inline-block">Level(层): </span><%= product.alternativeShelfLocation?.slice(-1) %> 
+                    <span style="width: 140px; display: inline-block">Shelf ID(货架编号): </span><%= product.alternativeShelfLocation?.slice(0,2) %> <br>
+                    <% if(product.alternativeShelfLocation.length===4) {  %> <span style="width: 140px; display: inline-block">Section ID(分区编号): </span><%= product.alternativeShelfLocation.slice(2,3) %>  %> <br> <% } %>
+                    <span style="width: 140px; display: inline-block">Level(层): </span><%= product.alternativeShelfLocation?.slice(-1) %> 
                   <%  } %>
                 </td>
 
