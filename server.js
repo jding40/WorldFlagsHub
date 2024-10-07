@@ -218,6 +218,8 @@ app.post('/', (req, res) => {
 
 });
 
+app.get('/feedback', (req,res)=>{res.render('500', {message: '即将推出', page: '/feedback'})})
+
 app.get('/logout', (req, res) => {
   req.session.reset();
   res.redirect('/');
