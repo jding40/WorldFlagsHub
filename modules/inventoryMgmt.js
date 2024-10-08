@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 let Schema = mongoose.Schema;
+const OpenCC = require('opencc-js');
+const converter = OpenCC.Converter({ from: 'hk', to: 'cn' });
 
 // 用于加载 .env 文件中的环境变量到 Node.js 的 process.env 对象中
 require('dotenv').config();
@@ -43,6 +45,7 @@ function initialize() {
 // inventoryMgmt.js:
 function getProductByKeyWords(string) {
 
+    string = converter(string);
     
     return new Promise((resolve, reject) => {
 
