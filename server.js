@@ -72,7 +72,7 @@ app.get("/addProduct",ensureLogin, async (req, res) => {
 
 app.get("/shelfLocationManagement/:scode?",ensureLogin, async (req, res) => {
 
-  const scode = req.params.scode.toUpperCase();
+  const scode = req.params.scode?.toUpperCase();
   if (!scode) res.render("shelfLocationManagement");
   else inventoryData.getProductsByShelfLocationID(scode)
   .then((products)=>res.render("shelf-products", {products, shelfLocationID:scode}))
