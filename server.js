@@ -133,20 +133,6 @@ app.get('/userHistory', ensureLogin, (req, res) => {
 
 
 
-
-
-// app.get("/un/countries/region-demo", async (req,res)=>{
-//   try{
-//     let countries = await unCountryData.getCountriesByRegion("Oceania");
-//     res.send(countries);
-//   }catch(err){
-//     res.send(err);
-//   }
-// });
-
-
-
-
 app.get('/login', (req, res) => {
   res.render('login',{errorMessage: ""});
 });
@@ -239,13 +225,6 @@ app.use((req, res, next) => {
   res.status(404).render("404", {message: "I'm sorry, we're unable to find what you're looking for"});
 });
 
-
-
-
-//original version in A5 clean
-// unCountryData.initialize().then(()=>{
-//   app.listen(HTTP_PORT, () => { console.log(`server listening on: ${HTTP_PORT}`) });
-// });
 
 inventoryData.initialize().then(()=>console.log("inventory data initialized")).catch((err)=> {console.log(`Err: ${err}`)})
 
