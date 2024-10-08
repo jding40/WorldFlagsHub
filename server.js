@@ -204,7 +204,7 @@ app.post('/', (req, res) => {
 
 });
 
-app.get('/feedback', (req,res)=>{res.render('500', {message: '即将推出, 敬请期待！', page: '/feedback'})})
+app.get('/feedback', (req,res)=>{res.render('500', {message: '即将推出, 敬请期待！<br> Coming soon, stay tuned!', page: '/feedback'})})
 
 app.get('/logout', (req, res) => {
   req.session.reset();
