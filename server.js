@@ -96,7 +96,7 @@ app.post("/shelfLocationManagement/:scode", ensureLogin, (req, res)=>{
   inventoryData.addProductToShelf(req.body.barCode, scode, isAlternative).then(()=>{
     
     res.redirect(`/shelfLocationManagement/${scode}`)
-  }).catch((err)=>res.render('500', {message:err}))
+  }).catch((err)=>res.render('500', {message:err, page:''}))
 
  
 })
