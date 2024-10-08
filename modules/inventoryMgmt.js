@@ -69,7 +69,7 @@ function addProductToShelf(barCode, shelfLocation, isAlternative) {
             .then(product => {
                 if (!product) {
                     // 如果没有找到产品，报错
-                    console.log("Not Found!")
+                    // console.log("Not Found!")
                     return reject("Product not found");
                 }
 
