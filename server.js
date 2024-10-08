@@ -72,7 +72,7 @@ app.get("/addProduct",ensureLogin, async (req, res) => {
 
 app.get("/shelfLocationManagement/:scode?",ensureLogin, async (req, res) => {
 
-  const scode = req.params.scode;
+  const scode = req.params.scode.toUpperCase();
   if (!scode) res.render("shelfLocationManagement");
   else inventoryData.getProductsByShelfLocationID(scode)
   .then((products)=>res.render("shelf-products", {products, shelfLocationID:scode}))
@@ -91,7 +91,7 @@ app.post("/shelfLocationManagement", ensureLogin, (req, res)=>{
 })
 
 app.post("/shelfLocationManagement/:scode", ensureLogin, (req, res)=>{
-  const scode = req.params.scode;
+  const scode = req.params.scode.toUpperCase();
   const isAlternative = !!req.body.isAlternative; 
   inventoryData.addProductToShelf(req.body.barCode, scode, isAlternative).then(()=>{
     
