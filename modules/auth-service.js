@@ -12,14 +12,10 @@ require("dotenv").config();
 
 //step A2.6
 const userSchema = new Schema({
-  userID: { type: String, unique: true },
+  userName: { type: String, unique: true },
   //userName: String,
   password: String,
-  userType: String,
   email: String,
-  tel: String,
-  firstName: String,
-  lastName: String,
   loginHistory: [
     {
       dateTime: Date,
@@ -29,7 +25,7 @@ const userSchema = new Schema({
 });
 
 //step A2.7
-let User; // to be defined on new connection (see initialize)
+let User;
 
 //step A2.8
 
@@ -44,15 +40,13 @@ let User; // to be defined on new connection (see initialize)
 //version 2
 function initialize() {
   return new Promise(function (resolve, reject) {
-    let db = mongoose.createConnection(process.env.MONGODB, {
-      dbName: "FreshPro",
-    });
+    let db = mongoose.createConnection(process.env.MONGODB);
 
     db.on("error", (err) => {
       reject(err); // reject the promise with the provided error
     });
     db.once("open", () => {
-      User = db.model("Users", userSchema); //Users is the name of the collection in the database
+      User = db.model("users", userSchema); //users is the name of the collection int eh database
       resolve();
     });
   });
@@ -161,7 +155,7 @@ function checkUser(userData) {
         reject(`Unable to find user: ${userData.userName}`);
 
       bcrypt
-        .compare(userData.password, users[0].password)
+        .compare(userData.password, users[0]?.password)
         .then((result) => {
           if (!result)
             reject(`Incorrect Password for user: ${userData.userName}`);
