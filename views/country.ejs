@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UN Countries</title>
+  <link rel="stylesheet" href="/css/main.css" />
+  <script>
+    document.addEventListener("DOMContentLoaded", async ()=>{
+
+        let res = await fetch("https://quotable.io/random");
+        let data = await res.json();
+
+        document.getElementById("quote").innerHTML = `"${data.content}"<br />- <em>${data.author}</em>`;
+    });
+  </script>
+
+</head>
+
+<body tabindex="-1">
+
+  <%- include('partials/navbar', {page: ''}) %>
+
+  <div class="container mx-auto p-4">
+
+    <div class="hero bg-base-200 rounded-lg p-6">
+      <div class="hero-content text-center ">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold"><%= country.name %></h1>
+
+          <p class="py-6">Below, you will find detailed information about the country: <%= country.name %></p>
+
+        </div>
+      </div>
+    </div>
+
+    <br />
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <img class="w-full rounded-lg shadow-2xl"
+          src="<%= country.flag %>"
+          alt="<%= country.flag %> flag" />
+
+      </div>
+      <div class="prose">
+
+        <p>
+          <span class="font-bold">Country Name: </span> <%= country.name %> <br />
+          <span class="font-bold">Official Name: </span> <%= country.official %> <br />
+          <span class="font-bold">Native Name: </span> <%= country.nativeName %> <br />
+          <span class="font-bold">Region: </span> <%= country.Region.name %> <br />
+          <span class="font-bold">Alpha 2 Code: </span> <%= country.a2code %> <br />
+          <span class="font-bold">Capital: </span> <%= country.capital %> <br />
+          <span class="font-bold">Population: </span> <%= country.population.toLocaleString() %> <br />
+          <span class="font-bold">Page On Wikipedia: </span> <a href="<%= country.wikipediaURL%>" target="_blank" class="btn btn-xs"><%= country.wikipediaURL%></a><br /><br />
+
+          <span id="quote"></span>
+          <br /><br />
+          <% if(session.user){ %>
+            <a class="btn btn-secondary btn-sm" href="/un/editCountry/<%= country.a2code %>">EDIT COUNTRY: <%= country.name.toUpperCase() %></a>
+          <% } %>
+            <a class="btn btn-primary btn-sm" href="#" onclick="history.back(); return false;">RETURN</a>
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</body>
+
+</html>
