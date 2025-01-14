@@ -56,8 +56,11 @@ function ensureLogin(req, res, next) {
 
 app.set("view engine", "ejs");
 
-app.get("/", (req, res) => {
-  res.render("home");
+app.get("/", async (req, res) => {
+  const countries = await unCountryData.getAllCountries();
+  const UNSCCountries = countries.filter((country) => country.permanentUNSC);
+
+  res.render("home", { UNSCCountries });
 });
 
 app.get("/about", (req, res) => {
