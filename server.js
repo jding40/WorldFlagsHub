@@ -40,6 +40,7 @@ app.use(
   })
 );
 
+//是将每个请求的 req.session 数据暴露到 res.locals 上，以便在视图模板中可以方便地访问会话信息。
 app.use((req, res, next) => {
   res.locals.session = req.session;
   next();
