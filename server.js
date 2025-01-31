@@ -29,6 +29,10 @@ const HTTP_PORT = process.env.PORT;
 app.use(express.static(__dirname + "/public"));
 app.set("views", __dirname + "/views");
 
+//The "locals" property allows you to attach local variables to the application, which persist throughout the life of the app.
+// You can access local variables in templates rendered within the application
+app.locals.title = "My App";
+
 app.use(express.urlencoded({ extended: true }));
 
 app.use(
@@ -43,6 +47,7 @@ app.use(
 //是将每个请求的 req.session 数据暴露到 res.locals 上，以便在视图模板中可以方便地访问会话信息。
 app.use((req, res, next) => {
   res.locals.session = req.session;
+  console.log("app.locals in server.js:", app.locals);
   next();
 });
 
@@ -61,6 +66,10 @@ app.get("/", async (req, res) => {
   const UNSCCountries = countries.filter((country) => country.permanentUNSC);
 
   res.render("home", { UNSCCountries });
+});
+
+app.get("/hello", (req, res) => {
+  res.send(`Hello ${req.get("user-agent")}`);
 });
 
 app.get("/about", (req, res) => {
