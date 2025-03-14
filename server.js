@@ -40,12 +40,22 @@ app.locals.title = "My App";
 app.use(express.urlencoded({ extended: true }));
 
 // 使用 client-sessions 进行会话管理
+// app.use(
+//   clientSessions({
+//     cookieName: "session", // this is the object name that will be added to 'req'
+//     secret: "week10example_web322", // this should be a long un-guessable string.
+//     duration: 2 * 60 * 1000, // duration of the session in milliseconds (2 minutes)
+//     activeDuration: 1000 * 60, // the session will be extended by this many ms each request (1 minute)
+//   })
+// );
+
+// 使用 express-session 进行会话管理
 app.use(
   clientSessions({
-    cookieName: "session", // this is the object name that will be added to 'req'
-    secret: "week10example_web322", // this should be a long un-guessable string.
-    duration: 2 * 60 * 1000, // duration of the session in milliseconds (2 minutes)
-    activeDuration: 1000 * 60, // the session will be extended by this many ms each request (1 minute)
+    secret: "week10example_web322", // 你的密钥
+    resave: false, // 避免每次请求都重新保存 session
+    saveUninitialized: false, // 只有在 session 有数据修改时才存储
+    cookie: { maxAge: 2 * 60 * 1000 }, // 2 分钟
   })
 );
 
