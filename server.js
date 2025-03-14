@@ -14,13 +14,17 @@ const unCountryData = require("./modules/unCountries");
 
 const authData = require("./modules/auth-service");
 // const path = require("path");
+
 const express = require("express");
+
 const app = express();
 
 //引入了一个名为 "client-sessions" 的 Node.js 模块。
 //这个模块是用来在 Express.js 应用中管理客户端会话（sessions）的。
 //会话是用来在客户端和服务器之间存储状态信息的一种机制，通常用于跟踪用户的登录状态、购物车内容等。
-const clientSessions = require("client-sessions");
+
+const clientSessions2 = require("client-sessions");
+const clientSessions = require("express-session"); //改用express-session
 
 // const HTTP_PORT = process.env.PORT || 8080;
 const HTTP_PORT = process.env.PORT;
@@ -35,6 +39,7 @@ app.locals.title = "My App";
 
 app.use(express.urlencoded({ extended: true }));
 
+// 使用 client-sessions 进行会话管理
 app.use(
   clientSessions({
     cookieName: "session", // this is the object name that will be added to 'req'
@@ -57,6 +62,14 @@ function ensureLogin(req, res, next) {
   } else {
     next();
   }
+}
+
+//上述函数可优化为：
+function ensureLogin2(req, res, next) {
+  if (!req.session.user) {
+    return res.redirect("/login");
+  }
+  next();
 }
 
 app.set("view engine", "ejs");
