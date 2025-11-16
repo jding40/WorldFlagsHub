@@ -40,7 +40,9 @@ let User;
 //version 2
 function initialize() {
   return new Promise(function (resolve, reject) {
-    let db = mongoose.createConnection(process.env.MONGODB);
+    let db = mongoose.createConnection(process.env.MONGODB, {
+      dbName: "WorldFlagsHub",
+    });
 
     db.on("error", (err) => {
       reject(err); // reject the promise with the provided error

@@ -31,6 +31,7 @@ const HTTP_PORT = process.env.PORT;
 
 //express.static('public') 是 Express 的一个内置中间件，用于处理静态文件。
 app.use(express.static(__dirname + "/public"));
+
 app.set("views", __dirname + "/views");
 
 //The "locals" property allows you to attach local variables to the application, which persist throughout the life of the app.
@@ -248,7 +249,8 @@ app.post("/register", (req, res) => {
 });
 
 app.get("/logout", (req, res) => {
-  req.session.reset();
+  //req.session.reset();
+  req.session.destroy();
   res.redirect("/");
 });
 
@@ -286,3 +288,38 @@ unCountryData
   .catch((err) => {
     console.log(`unable to start server: ${err}`);
   });
+
+// 等效于下面的async await形式
+//   async function startServer() {
+//   try {
+//     await unCountryData.initialize();
+//     await authData.initialize();
+
+//     app.listen(HTTP_PORT, () => {
+//       console.log(`server listening on: ${HTTP_PORT}`);
+//     });
+//   } catch (err) {
+//     console.log(`unable to start server: ${err}`);
+//   }
+// }
+
+// startServer();
+
+// 进一步提升效率
+// 第一个initialize不阻塞第二个initialize
+// async function startServer() {
+//   try {
+//     await Promise.all([
+//       unCountryData.initialize(),
+//       authData.initialize()
+//     ]);
+
+//     app.listen(HTTP_PORT, () => {
+//       console.log(`server listening on: ${HTTP_PORT}`);
+//     });
+//   } catch (err) {
+//     console.log(`unable to start server: ${err}`);
+//   }
+// }
+
+// startServer();
